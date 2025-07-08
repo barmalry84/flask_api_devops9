@@ -7,7 +7,7 @@ pipeline {
         AWS_ACCOUNT_ID = '381492243289'
         URL_REGISTRY = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
         IMAGE_TAG = "${URL_REGISTRY}/${ECR_REPO}"
-        RUNNER_CONTAINER = 'test-runner'
+        RUNNER_CONTAINER = 'test_runner'
     }
 
     stages { 
