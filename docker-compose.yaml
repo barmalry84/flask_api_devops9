@@ -1,0 +1,22 @@
+services:
+  flask_api:
+    build:
+      context: ./flask_api
+    networks:
+      - test-network
+
+  test_runner:
+    build:
+      context: ./uat
+    depends_on:
+      flask_api:
+        condition: service_healthy
+    networks:
+      - test-network
+    environment:
+      - FLASK_ENDPOINT=http://flask_api:5999
+
+networks:
+  test-network:
+
+
