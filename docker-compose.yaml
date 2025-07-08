@@ -4,6 +4,7 @@ services:
       context: ./flask_api
     networks:
       - test-network
+      
   test_runner:
     build:
       context: ./uat
