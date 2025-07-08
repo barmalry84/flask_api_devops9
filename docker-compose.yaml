@@ -14,7 +14,7 @@ services:
     networks:
       - test-network
     environment:
-      - FLASK_ENDPOINT=http://flask_api:5999
+      - FLASK_ENDPOINT=http://flask_api:5010
 
 networks:
   test-network:
