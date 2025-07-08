@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome():
-    return jsonify(message="Hello pople!!!")
+    return jsonify(message="Hello pple!!!")
 
 @app.route('/sum', methods=['POST'])
 def sum_number():
