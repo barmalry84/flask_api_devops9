@@ -57,10 +57,10 @@ pipeline {
                         sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${URL_REGISTRY}"
                         
                         // Tag the image
-                        sh "docker tag flask-app:latest \"${IMAGE_TAG}:${GIT_COMMIT}:lates\""
+                        sh "docker tag flask-app:latest \"${IMAGE_TAG}:latest\""
                         
                         // Push to ECR
-                        sh "docker push \"${IMAGE_TAG}:${GIT_COMMIT}\""
+                        sh "docker push \"${IMAGE_TAG}:latest\""
                     }
                 }
             }
