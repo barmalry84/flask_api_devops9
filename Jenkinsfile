@@ -75,7 +75,7 @@ pipeline {
                     docker stop flask-container && docker rm flask-container
                     docker run -d --name flask-container \
                         -p 5010:5010 \
-                        \"${IMAGE_TAG}:${GIT_COMMIT}\"
+                        \"${IMAGE_TAG}:latest\"
                     """
                 }
             }
