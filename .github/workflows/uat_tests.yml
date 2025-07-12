@@ -3,7 +3,10 @@ name: Run Test in every PR
 on:
   pull_request:
     branches:
-        - main        
+        - main
+    paths:
+      - flask_api/**
+      - uat/**   
 
 jobs:
   build-and-test:
