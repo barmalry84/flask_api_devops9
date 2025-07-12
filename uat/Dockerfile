@@ -13,4 +13,3 @@ COPY uat.py /tests
 
 # Wait for Flask app to be ready
 CMD ["sh", "-c", "sleep 10 && python uat.py"]
-
