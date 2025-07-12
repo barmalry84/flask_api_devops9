@@ -1,4 +1,4 @@
-name: Check of Flask
+name: Check of Football.ua Server Response
 
 on:
     workflow_dispatch:
