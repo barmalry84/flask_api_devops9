@@ -26,13 +26,6 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
-    - name: Increase version
-      run: |
-        version=$(cat version)
-        new_version=$(echo $version | awk -F. -v OFS=. '{$NF++;print}')
-        git commit -am "Bump version to $new_version"
-        git push origin main
-
     - name: Build, tag, and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
