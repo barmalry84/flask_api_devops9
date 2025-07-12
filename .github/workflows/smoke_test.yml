@@ -1,0 +1,38 @@
+name: Check of Flask
+
+on:
+    workflow_dispatch:
+    repository_dispatch:
+
+jobs:
+    check-response:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Check HTTP Response
+          id: check_response
+          run: |
+            URL="https://football.ua"
+            HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" "$URL")
+          
+            if [ "$HTTP_STATUS" -eq 200 ]; then
+                echo "Server is responding with status code 200."
+                echo "status=success" >> $GITHUB_ENV
+                echo "message=All fine!" > message.txt
+            else
+                echo "Server returned status code $HTTP_STATUS."
+                echo "status=failure" >> $GITHUB_ENV
+                echo "message=Server responded with status code $HTTP_STATUS." > message.txt
+                exit 1
+            fi
+
+        - name: Upload Artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: server-response-message
+            path: message.txt
+            
+        - name: Output Message
+          run: |
+            cat message.txt
+
