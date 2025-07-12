@@ -7,7 +7,7 @@ def test_user_acceptance():
     # Test welcome message
     response = requests.get(f"{base_url}/")
     assert response.status_code == 200
-    assert response.json()['message'] == "Hello pple!!!"
+    assert response.json()['message'] == "Hello people!!!"
 
     # Test sum operation
     response = requests.post(f"{base_url}/sum", json={'num1': 10, 'num2': 15})
