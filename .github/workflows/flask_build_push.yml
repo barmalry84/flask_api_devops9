@@ -31,5 +31,5 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: flask-api
       run: |
-        docker build -f flask_api/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$new_version flask_api
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$new_version
+        docker build -f flask_api/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:latest flask_api
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
